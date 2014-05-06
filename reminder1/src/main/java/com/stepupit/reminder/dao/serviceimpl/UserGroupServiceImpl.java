@@ -1,23 +1,16 @@
 package com.stepupit.reminder.dao.serviceimpl;
 
-import java.util.List;
 
-import org.hibernate.SessionFactory;
-import org.springframework.beans.factory.annotation.Autowired;
+public class UserGroupServiceImpl{ //implements UserGroupService{
+	/*
 
-import com.stepupit.reminder.dao.model.UserGroups;
-import com.stepupit.reminder.dao.service.UserGroupService;
-
-public class UserGroupServiceImpl implements UserGroupService{
-
-	
 	 @Autowired
-	    private SessionFactory sessionFactory;
-	 
-	 
+//	    private SessionFactory sessionFactory;
+
+
 	@Override
 	public void addGroup(UserGroups group) {
-		 sessionFactory.getCurrentSession().save(group);		
+		 sessionFactory.getCurrentSession().save(group);
 	}
 
 	@Override
@@ -31,7 +24,7 @@ public class UserGroupServiceImpl implements UserGroupService{
 				UserGroups.class, id);
         if (null != group) {
             sessionFactory.getCurrentSession().delete(group);
-        }		
-	}
+        }
+	}*/
 
 }

@@ -1,9 +1,9 @@
-package com.stepupit.reminder.dao.model;
+/*package com.stepupit.reminder.dao.model;
 
-/*
+
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
- */
+
 
 import java.io.Serializable;
 import javax.persistence.Basic;
@@ -15,10 +15,10 @@ import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
-/**
+ *//**
  *
  * @author ank
- */
+ *//*
 @Entity
 @Table(name = "usergroups")
 @XmlRootElement
@@ -97,3 +97,4 @@ public class UserGroups implements Serializable {
 	}
 
 }
+  */
