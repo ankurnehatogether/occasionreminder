@@ -12,8 +12,6 @@ import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.NamedQueries;
-import javax.persistence.NamedQuery;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
 
@@ -24,11 +22,6 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "usergroups")
 @XmlRootElement
-@NamedQueries({
-	@NamedQuery(name = "Usergroups.findAll", query = "SELECT u FROM Usergroups u"),
-	@NamedQuery(name = "Usergroups.findByGrpId", query = "SELECT u FROM Usergroups u WHERE u.grpId = :grpId"),
-	@NamedQuery(name = "Usergroups.findByGrpName", query = "SELECT u FROM Usergroups u WHERE u.grpName = :grpName"),
-	@NamedQuery(name = "Usergroups.findByUserId", query = "SELECT u FROM Usergroups u WHERE u.userId = :userId") })
 public class UserGroups implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id

@@ -9,67 +9,70 @@
 	<version>1.0.0-BUILD-SNAPSHOT</version>
 
 	<properties>
-		<java.version>1.6</java.version>
-		<javax.jstl.version>1.2</javax.jstl.version>
-		<spring.version>4.0.1.RELEASE</spring.version>
-		<log4j>1.2.17</log4j>
+		<maven.test.failure.ignore>true</maven.test.failure.ignore>
+		<spring.framework.version>3.2.0.RELEASE</spring.framework.version>
+		<hibernate.version>3.5.4-Final</hibernate.version>
+		<sl4j.version>1.7.2</sl4j.version>
+		<org.slf4j.version>1.7.2</org.slf4j.version>
+		<junit.version>4.11</junit.version>
+		<sql.version>5.1.10</sql.version>
 		<apache.tiles.version>2.2.1</apache.tiles.version>
-		<org.slf4j.version>1.5.10</org.slf4j.version>
-		<project.build.finalName>springtiles</project.build.finalName>
+		<log4j.version>1.2.14</log4j.version>
+		<commons-dbcp-version>1.3</commons-dbcp-version>
 	</properties>
 
 	<dependencies>
+		<!-- ********************************************************************** 
+			** SPRING DEPENDENCIES ** ********************************************************************** -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-orm</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-tx</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
+
+
+
+
+		<!-- ********************************************************************** 
+			** HIBERNATE DEPENDENCIES ** 
+			********************************************************************** -->
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+
+
+
+		<!-- ********************************************************************** 
+			** OTHER DEPENDENCIES ** 
+			********************************************************************** -->
+		<!-- <dependency> -->
+		<!-- <groupId>org.slf4j</groupId> -->
+		<!-- <artifactId>slf4j-jcl</artifactId> -->
+		<!-- <version>${sl4j.version}</version> -->
+		<!-- </dependency> -->
 
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
-			<version>1.2.2</version>
+			<version>${commons-dbcp-version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>junit</groupId>
-			<artifactId>junit</artifactId>
-			<version>3.8.1</version>
-			<scope>test</scope>
-		</dependency>
-		<!-- Spring dependencies -->
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
+
 
 		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-web</artifactId>
-			<version>${spring.version}</version>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+			<version>${sl4j.version}</version>
 		</dependency>
 
-		<dependency>
-			<groupId>org.springframework</groupId>
-			<artifactId>spring-webmvc</artifactId>
-			<version>${spring.version}</version>
-		</dependency>
-
-		<!-- Logger -->
-
-		<dependency>
-			<groupId>log4j</groupId>
-			<artifactId>log4j</artifactId>
-			<version>${log4j}</version>
-		</dependency>
-		<!-- Tiles -->
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-core</artifactId>
-			<version>${apache.tiles.version}</version>
-		</dependency>
-
-		<dependency>
-			<groupId>org.apache.tiles</groupId>
-			<artifactId>tiles-jsp</artifactId>
-			<version>${apache.tiles.version}</version>
-		</dependency>
 
 		<dependency>
 			<groupId>org.slf4j</groupId>
@@ -91,75 +94,62 @@
 			<scope>runtime</scope>
 		</dependency>
 
-		<dependency>
-			<groupId>javax</groupId>
-			<artifactId>javaee-api</artifactId>
-			<version>6.0</version>
-			<scope>provided</scope>
-		</dependency>
 
-		<dependency>
-			<groupId>javax.servlet</groupId>
-			<artifactId>jstl</artifactId>
-			<version>${javax.jstl.version}</version>
-			<scope>runtime</scope>
-		</dependency>
-
-		<!-- Hibernate library dependecy start -->
-
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-core</artifactId>
-			<version>4.0.1.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-validator</artifactId>
-			<version>4.2.0.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate.common</groupId>
-			<artifactId>hibernate-commons-annotations</artifactId>
-			<version>4.0.1.Final</version>
-			<classifier>tests</classifier>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate.javax.persistence</groupId>
-			<artifactId>hibernate-jpa-2.0-api</artifactId>
-			<version>1.0.1.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>org.hibernate</groupId>
-			<artifactId>hibernate-entitymanager</artifactId>
-			<version>4.0.1.Final</version>
-		</dependency>
-		<dependency>
-			<groupId>javax.validation</groupId>
-			<artifactId>validation-api</artifactId>
-			<version>1.0.0.GA</version>
-			<scope>provided</scope>
-		</dependency>
-		<!-- <dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-api</artifactId>
-			<version>1.6.4</version>
-		</dependency>
- 
-		<dependency>
-			<groupId>org.slf4j</groupId>
-			<artifactId>slf4j-log4j12</artifactId>
-			<version>1.7.7</version>
-		</dependency>
- -->
 
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
-			<version>5.1.10</version>
+			<version>${sql.version}</version>
+		</dependency>
+
+		
+
+	 
+		<!-- Tiles -->
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-core</artifactId>
+			<version>${apache.tiles.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tiles</groupId>
+			<artifactId>tiles-jsp</artifactId>
+			<version>${apache.tiles.version}</version>
 		</dependency>
 
 
-		<!-- Hibernate library dependecy end -->
+<!-- 
+		<dependency>
+			<groupId>javax.transaction</groupId>
+			<artifactId>jta</artifactId>
+			<version>1.1</version>
+		</dependency>
+		 -->
+		 
+		 <!-- Logger -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>${log4j.version}</version>
+		</dependency>
+
+
+		<!-- ********************************************************************** 
+			** TEST DEPENDENCIES ** 
+			********************************************************************** -->
+
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>${junit.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>${spring.framework.version}</version>
+		</dependency>
 
 	</dependencies>
 
