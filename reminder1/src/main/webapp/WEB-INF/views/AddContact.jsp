@@ -15,7 +15,7 @@
 				<div>
 					<div class="label">Name</div>
 					<div class="input">
-						<input type="text" name="name" id="name"> </input>
+						<input type="text" name="grpName" id="grpName"> </input>
 					</div>
 				</div>
 

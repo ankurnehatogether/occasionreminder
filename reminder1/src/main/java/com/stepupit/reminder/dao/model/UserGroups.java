@@ -34,6 +34,7 @@ public class UserGroups implements Serializable {
 	private Integer userId;
 
 	public UserGroups() {
+		this.grpId=1;
 	}
 
 	public UserGroups(Integer grpId) {

@@ -2,13 +2,16 @@ package com.stepupit.reminder.dao.serviceimpl;
 
 import java.util.List;
 
+import org.hibernate.Session;
 import org.hibernate.SessionFactory;
+import org.hibernate.Transaction;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 
 import com.stepupit.reminder.dao.model.UserGroups;
 import com.stepupit.reminder.dao.service.UserGroupService;
 
-
+@Repository("UserGroupService")
 public class UserGroupServiceImpl implements UserGroupService{
 
 
@@ -18,7 +21,12 @@ public class UserGroupServiceImpl implements UserGroupService{
 
 	@Override
 	public void addGroup(UserGroups group) {
-		this.sessionFactory.getCurrentSession().save(group);
+		Session sess = null;
+		sess = this.sessionFactory.openSession();
+		Transaction tx = sess.beginTransaction();
+		sess.save(group);
+		tx.commit();
+		sess.close();
 	}
 
 	@Override
