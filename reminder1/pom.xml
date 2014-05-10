@@ -23,7 +23,7 @@
 
 	<dependencies>
 		<!-- ********************************************************************** 
-			** SPRING DEPENDENCIES ** ********************************************************************** -->
+			** SPRING ORM DEPENDENCIES ** ********************************************************************** -->
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-orm</artifactId>
@@ -39,8 +39,7 @@
 
 
 		<!-- ********************************************************************** 
-			** HIBERNATE DEPENDENCIES ** 
-			********************************************************************** -->
+			** HIBERNATE DEPENDENCIES ** ********************************************************************** -->
 
 		<dependency>
 			<groupId>org.hibernate</groupId>
@@ -53,12 +52,7 @@
 		<!-- ********************************************************************** 
 			** OTHER DEPENDENCIES ** 
 			********************************************************************** -->
-		<!-- <dependency> -->
-		<!-- <groupId>org.slf4j</groupId> -->
-		<!-- <artifactId>slf4j-jcl</artifactId> -->
-		<!-- <version>${sl4j.version}</version> -->
-		<!-- </dependency> -->
-
+	
 		<dependency>
 			<groupId>commons-dbcp</groupId>
 			<artifactId>commons-dbcp</artifactId>
@@ -94,17 +88,13 @@
 			<scope>runtime</scope>
 		</dependency>
 
-
-
+		<!-- MySQL Driver -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>${sql.version}</version>
 		</dependency>
 
-		
-
-	 
 		<!-- Tiles -->
 		<dependency>
 			<groupId>org.apache.tiles</groupId>
@@ -119,15 +109,10 @@
 		</dependency>
 
 
-<!-- 
-		<dependency>
-			<groupId>javax.transaction</groupId>
-			<artifactId>jta</artifactId>
-			<version>1.1</version>
-		</dependency>
-		 -->
-		 
-		 <!-- Logger -->
+		<!-- <dependency> <groupId>javax.transaction</groupId> <artifactId>jta</artifactId> 
+			<version>1.1</version> </dependency> -->
+
+		<!-- Logger -->
 		<dependency>
 			<groupId>log4j</groupId>
 			<artifactId>log4j</artifactId>
@@ -136,8 +121,7 @@
 
 
 		<!-- ********************************************************************** 
-			** TEST DEPENDENCIES ** 
-			********************************************************************** -->
+			** TEST DEPENDENCIES ** ********************************************************************** -->
 
 		<dependency>
 			<groupId>junit</groupId>
