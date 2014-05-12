@@ -13,5 +13,9 @@
 	<definition name="newContact" template="/WEB-INF/views/AddContact.jsp">
 		<put-attribute name="title" value="Add Contact" />
 	</definition>
+	
+	<definition name="registration" template="/WEB-INF/views/Registration.jsp">
+		<put-attribute name="title" value="Registration" />
+	</definition>
 
 </tiles-definitions>
