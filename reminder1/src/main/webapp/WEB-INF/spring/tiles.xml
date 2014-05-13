@@ -6,7 +6,7 @@
 
 <tiles-definitions>
 
-	<definition name="baseLayout" template="/WEB-INF/views/home.jsp">
+	<definition name="home" template="/WEB-INF/views/home.jsp">
 		<put-attribute name="title" value="Template" />
 	</definition>
 	
@@ -16,6 +16,11 @@
 	
 	<definition name="registration" template="/WEB-INF/views/Registration.jsp">
 		<put-attribute name="title" value="Registration" />
+	</definition>
+	 
+	
+	<definition name="login" template="/WEB-INF/views/login.jsp">
+		<put-attribute name="title" value="Login Page" />
 	</definition>
 
 </tiles-definitions>
