@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "contacts", catalog = "occasionreminder", schema = "")
 @XmlRootElement
-public class Contacts implements Serializable {
+public class ContactsRecord implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -41,27 +41,27 @@ public class Contacts implements Serializable {
 	@Column(name = "phoneno")
 	private String phoneno;
 	@OneToMany(mappedBy = "contactid")
-	private Collection<Grpcontacts> grpcontactsCollection;
+	private Collection<GrpContactsRecord> grpcontactsCollection;
 	@OneToMany(mappedBy = "contactid")
-	private Collection<Contactoccasion> contactoccasionCollection;
+	private Collection<ContactoccasionRecord> contactoccasionCollection;
 	@JoinColumn(name = "userid", referencedColumnName = "userId")
 	@ManyToOne(optional = false)
-	private User userid;
+	private UserRecord userid;
 
-	public Contacts() {
+	public ContactsRecord() {
 	}
 
-	public Contacts(Integer contactid) {
+	public ContactsRecord(Integer contactid) {
 		this.contactid = contactid;
 	}
 
 	@Override
 	public boolean equals(Object object) {
 		// TODO: Warning - this method won't work in the case the id fields are not set
-		if (!(object instanceof Contacts)) {
+		if (!(object instanceof ContactsRecord)) {
 			return false;
 		}
-		Contacts other = (Contacts) object;
+		ContactsRecord other = (ContactsRecord) object;
 		if ((this.contactid == null && other.contactid != null) || (this.contactid != null && !this.contactid.equals(other.contactid))) {
 			return false;
 		}
@@ -73,7 +73,7 @@ public class Contacts implements Serializable {
 	}
 
 	@XmlTransient
-	public Collection<Contactoccasion> getContactoccasionCollection() {
+	public Collection<ContactoccasionRecord> getContactoccasionCollection() {
 		return this.contactoccasionCollection;
 	}
 
@@ -82,7 +82,7 @@ public class Contacts implements Serializable {
 	}
 
 	@XmlTransient
-	public Collection<Grpcontacts> getGrpcontactsCollection() {
+	public Collection<GrpContactsRecord> getGrpcontactsCollection() {
 		return this.grpcontactsCollection;
 	}
 
@@ -94,7 +94,7 @@ public class Contacts implements Serializable {
 		return this.phoneno;
 	}
 
-	public User getUserid() {
+	public UserRecord getUserid() {
 		return this.userid;
 	}
 
@@ -109,7 +109,7 @@ public class Contacts implements Serializable {
 		this.contactid = contactid;
 	}
 
-	public void setContactoccasionCollection(Collection<Contactoccasion> contactoccasionCollection) {
+	public void setContactoccasionCollection(Collection<ContactoccasionRecord> contactoccasionCollection) {
 		this.contactoccasionCollection = contactoccasionCollection;
 	}
 
@@ -117,7 +117,7 @@ public class Contacts implements Serializable {
 		this.email = email;
 	}
 
-	public void setGrpcontactsCollection(Collection<Grpcontacts> grpcontactsCollection) {
+	public void setGrpcontactsCollection(Collection<GrpContactsRecord> grpcontactsCollection) {
 		this.grpcontactsCollection = grpcontactsCollection;
 	}
 
@@ -129,7 +129,7 @@ public class Contacts implements Serializable {
 		this.phoneno = phoneno;
 	}
 
-	public void setUserid(User userid) {
+	public void setUserid(UserRecord userid) {
 		this.userid = userid;
 	}
 

@@ -22,76 +22,76 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author ank
  */
 @Entity
-@Table(name = "contactoccasion", catalog = "occasionreminder", schema = "")
+@Table(name = "grpcontacts", catalog = "occasionreminder", schema = "")
 @XmlRootElement
-public class Contactoccasion implements Serializable {
+public class GrpContactsRecord implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Basic(optional = false)
-	@Column(name = "contactoccId")
-	private Integer contactoccId;
-	@JoinColumn(name = "occasionId", referencedColumnName = "occasionid")
-	@ManyToOne
-	private Occasions occasionId;
+	@Column(name = "grpContactid")
+	private Integer grpContactid;
 	@JoinColumn(name = "contactid", referencedColumnName = "contactid")
 	@ManyToOne
-	private Contacts contactid;
+	private ContactsRecord contactid;
+	@JoinColumn(name = "grpid", referencedColumnName = "groupid")
+	@ManyToOne
+	private GroupsRecord grpid;
 
-	public Contactoccasion() {
+	public GrpContactsRecord() {
 	}
 
-	public Contactoccasion(Integer contactoccId) {
-		this.contactoccId = contactoccId;
+	public GrpContactsRecord(Integer grpContactid) {
+		this.grpContactid = grpContactid;
 	}
 
 	@Override
 	public boolean equals(Object object) {
 		// TODO: Warning - this method won't work in the case the id fields are not set
-		if (!(object instanceof Contactoccasion)) {
+		if (!(object instanceof GrpContactsRecord)) {
 			return false;
 		}
-		Contactoccasion other = (Contactoccasion) object;
-		if ((this.contactoccId == null && other.contactoccId != null) || (this.contactoccId != null && !this.contactoccId.equals(other.contactoccId))) {
+		GrpContactsRecord other = (GrpContactsRecord) object;
+		if ((this.grpContactid == null && other.grpContactid != null) || (this.grpContactid != null && !this.grpContactid.equals(other.grpContactid))) {
 			return false;
 		}
 		return true;
 	}
 
-	public Contacts getContactid() {
+	public ContactsRecord getContactid() {
 		return this.contactid;
 	}
 
-	public Integer getContactoccId() {
-		return this.contactoccId;
+	public Integer getGrpContactid() {
+		return this.grpContactid;
 	}
 
-	public Occasions getOccasionId() {
-		return this.occasionId;
+	public GroupsRecord getGrpid() {
+		return this.grpid;
 	}
 
 	@Override
 	public int hashCode() {
 		int hash = 0;
-		hash += (this.contactoccId != null ? this.contactoccId.hashCode() : 0);
+		hash += (this.grpContactid != null ? this.grpContactid.hashCode() : 0);
 		return hash;
 	}
 
-	public void setContactid(Contacts contactid) {
+	public void setContactid(ContactsRecord contactid) {
 		this.contactid = contactid;
 	}
 
-	public void setContactoccId(Integer contactoccId) {
-		this.contactoccId = contactoccId;
+	public void setGrpContactid(Integer grpContactid) {
+		this.grpContactid = grpContactid;
 	}
 
-	public void setOccasionId(Occasions occasionId) {
-		this.occasionId = occasionId;
+	public void setGrpid(GroupsRecord grpid) {
+		this.grpid = grpid;
 	}
 
 	@Override
 	public String toString() {
-		return "Contactoccasion[ contactoccId=" + this.contactoccId + " ]";
+		return "Grpcontacts[ grpContactid=" + this.grpContactid + " ]";
 	}
 
 }

@@ -22,7 +22,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @Entity
 @Table(name = "user")
 @XmlRootElement
-public class User implements Serializable {
+public class UserRecord implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -43,14 +43,14 @@ public class User implements Serializable {
 
 
 
-	public User() {
+	public UserRecord() {
 	}
 
-	public User(Integer userId) {
+	public UserRecord(Integer userId) {
 		this.userId = userId;
 	}
 
-	public User(String name, String phoneNo, String email,
+	public UserRecord(String name, String phoneNo, String email,
 			String password) {
 		super();
 		this.name = name;
@@ -62,10 +62,10 @@ public class User implements Serializable {
 	@Override
 	public boolean equals(Object object) {
 		// TODO: Warning - this method won't work in the case the id fields are not set
-		if (!(object instanceof User)) {
+		if (!(object instanceof UserRecord)) {
 			return false;
 		}
-		User other = (User) object;
+		UserRecord other = (UserRecord) object;
 		if ((this.userId == null && other.userId != null) || (this.userId != null && !this.userId.equals(other.userId))) {
 			return false;
 		}

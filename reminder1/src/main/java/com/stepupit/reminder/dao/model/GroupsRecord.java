@@ -27,7 +27,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "groups", catalog = "occasionreminder", schema = "")
 @XmlRootElement
-public class Groups implements Serializable {
+public class GroupsRecord implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,36 +36,35 @@ public class Groups implements Serializable {
 	private Integer groupid;
 	@Basic(optional = false)
 	@Column(name = "name")
-	private String name;
+	private String grpName;
 	@Column(name = "advanceday")
 	private Integer advanceday;
 	@Column(name = "time")
 	private Integer time;
 	@OneToMany(mappedBy = "grpid")
-	private Collection<Grpcontacts> grpcontactsCollection;
+	private Collection<GrpContactsRecord> grpcontactsCollection;
 	@JoinColumn(name = "userid", referencedColumnName = "userId")
 	@ManyToOne
-	private User userid;
+	private UserRecord userid;
 
-	public Groups() {
+	public GroupsRecord() {
 	}
 
-	public Groups(Integer groupid) {
+	public GroupsRecord(Integer groupid) {
 		this.groupid = groupid;
 	}
 
-	public Groups(Integer groupid, String name) {
-		this.groupid = groupid;
-		this.name = name;
+	public GroupsRecord(String grpName) {
+		this.grpName = grpName;
 	}
 
 	@Override
 	public boolean equals(Object object) {
 		// TODO: Warning - this method won't work in the case the id fields are not set
-		if (!(object instanceof Groups)) {
+		if (!(object instanceof GroupsRecord)) {
 			return false;
 		}
-		Groups other = (Groups) object;
+		GroupsRecord other = (GroupsRecord) object;
 		if ((this.groupid == null && other.groupid != null) || (this.groupid != null && !this.groupid.equals(other.groupid))) {
 			return false;
 		}
@@ -81,19 +80,19 @@ public class Groups implements Serializable {
 	}
 
 	@XmlTransient
-	public Collection<Grpcontacts> getGrpcontactsCollection() {
+	public Collection<GrpContactsRecord> getGrpcontactsCollection() {
 		return this.grpcontactsCollection;
 	}
 
 	public String getName() {
-		return this.name;
+		return this.grpName;
 	}
 
 	public Integer getTime() {
 		return this.time;
 	}
 
-	public User getUserid() {
+	public UserRecord getUserid() {
 		return this.userid;
 	}
 
@@ -112,19 +111,19 @@ public class Groups implements Serializable {
 		this.groupid = groupid;
 	}
 
-	public void setGrpcontactsCollection(Collection<Grpcontacts> grpcontactsCollection) {
+	public void setGrpcontactsCollection(Collection<GrpContactsRecord> grpcontactsCollection) {
 		this.grpcontactsCollection = grpcontactsCollection;
 	}
 
 	public void setName(String name) {
-		this.name = name;
+		this.grpName = name;
 	}
 
 	public void setTime(Integer time) {
 		this.time = time;
 	}
 
-	public void setUserid(User userid) {
+	public void setUserid(UserRecord userid) {
 		this.userid = userid;
 	}
 

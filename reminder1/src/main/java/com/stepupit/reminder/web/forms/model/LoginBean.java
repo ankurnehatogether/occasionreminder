@@ -1,6 +1,6 @@
-package com.stepupit.reminder.web.model;
+package com.stepupit.reminder.web.forms.model;
 
-public class Login {
+public class LoginBean {
 
 	private String email;
 

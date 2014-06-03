@@ -1,6 +1,6 @@
 package com.stepupit.reminder.applayer.service;
 
-import com.stepupit.reminder.web.model.User;
+import com.stepupit.reminder.web.forms.model.RegistrationBean;
 
 
 /**
@@ -11,7 +11,7 @@ import com.stepupit.reminder.web.model.User;
 
 public interface RegistrationService extends AppService{
 
-	public String register(User user);
+	public boolean register(RegistrationBean user);
 
 
 

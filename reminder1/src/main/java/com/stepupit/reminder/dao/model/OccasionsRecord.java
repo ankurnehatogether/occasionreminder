@@ -25,7 +25,7 @@ import javax.xml.bind.annotation.XmlTransient;
 @Entity
 @Table(name = "occasions", catalog = "occasionreminder", schema = "")
 @XmlRootElement
-public class Occasions implements Serializable {
+public class OccasionsRecord implements Serializable {
 	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -36,27 +36,26 @@ public class Occasions implements Serializable {
 	@Column(name = "name")
 	private String name;
 	@OneToMany(mappedBy = "occasionId")
-	private Collection<Contactoccasion> contactoccasionCollection;
+	private Collection<ContactoccasionRecord> contactoccasionCollection;
 
-	public Occasions() {
+	public OccasionsRecord() {
 	}
 
-	public Occasions(Integer occasionid) {
+	public OccasionsRecord(Integer occasionid) {
 		this.occasionid = occasionid;
 	}
 
-	public Occasions(Integer occasionid, String name) {
-		this.occasionid = occasionid;
+	public OccasionsRecord( String name) {
 		this.name = name;
 	}
 
 	@Override
 	public boolean equals(Object object) {
 		// TODO: Warning - this method won't work in the case the id fields are not set
-		if (!(object instanceof Occasions)) {
+		if (!(object instanceof OccasionsRecord)) {
 			return false;
 		}
-		Occasions other = (Occasions) object;
+		OccasionsRecord other = (OccasionsRecord) object;
 		if ((this.occasionid == null && other.occasionid != null) || (this.occasionid != null && !this.occasionid.equals(other.occasionid))) {
 			return false;
 		}
@@ -64,7 +63,7 @@ public class Occasions implements Serializable {
 	}
 
 	@XmlTransient
-	public Collection<Contactoccasion> getContactoccasionCollection() {
+	public Collection<ContactoccasionRecord> getContactoccasionCollection() {
 		return this.contactoccasionCollection;
 	}
 
@@ -83,7 +82,7 @@ public class Occasions implements Serializable {
 		return hash;
 	}
 
-	public void setContactoccasionCollection(Collection<Contactoccasion> contactoccasionCollection) {
+	public void setContactoccasionCollection(Collection<ContactoccasionRecord> contactoccasionCollection) {
 		this.contactoccasionCollection = contactoccasionCollection;
 	}
 

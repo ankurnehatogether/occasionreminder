@@ -1,7 +1,7 @@
 /**
  *
  */
-package com.stepupit.reminder.web.model;
+package com.stepupit.reminder.web.forms.model;
 
 import java.util.List;
 
@@ -9,7 +9,7 @@ import java.util.List;
  * @author ank
  *
  */
-public class Contacts {
+public class ContactsBean {
 
 	private String name;
 

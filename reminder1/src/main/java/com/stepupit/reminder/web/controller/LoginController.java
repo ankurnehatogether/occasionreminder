@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.stepupit.reminder.applayer.service.AuthenticationService;
-import com.stepupit.reminder.web.model.Login;
+import com.stepupit.reminder.web.forms.model.LoginBean;
 
 @Controller
 public class LoginController {
@@ -19,14 +19,14 @@ public class LoginController {
 	private AuthenticationService authService;
 
 	@RequestMapping(value = "login.htm", method = RequestMethod.GET)
-	public ModelAndView getPage(@ModelAttribute Login login) {
+	public ModelAndView getPage(@ModelAttribute LoginBean login) {
 		ModelAndView mav = new ModelAndView("login");
 		return mav;
 	}
 
 
 	@RequestMapping(value = "login.htm", method = RequestMethod.POST)
-	public ModelAndView login(@ModelAttribute Login login) {
+	public ModelAndView login(@ModelAttribute LoginBean login) {
 		ModelAndView mav = null;
 		boolean result = this.authService.isAuthorize(login);
 		if (result) {

@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.stepupit.reminder.applayer.service.RegistrationService;
 import com.stepupit.reminder.applayer.utils.ApplicationConstants;
-import com.stepupit.reminder.web.model.User;
+import com.stepupit.reminder.web.forms.model.RegistrationBean;
 
 @Controller
 public class RegistrationController {
@@ -26,7 +26,7 @@ public class RegistrationController {
 	}
 
 	@RequestMapping(value = "register.htm", method = RequestMethod.POST)
-	public ModelAndView registeruser(@ModelAttribute User user){
+	public ModelAndView registeruser(@ModelAttribute RegistrationBean user){
 		ModelAndView mav = new ModelAndView("registration");
 		String errorMsg =null;
 		String output = null;

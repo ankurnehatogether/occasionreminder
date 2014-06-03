@@ -1,13 +1,13 @@
 /**
  *
  */
-package com.stepupit.reminder.web.model;
+package com.stepupit.reminder.web.forms.model;
 
 /**
  * @author ank
  *
  */
-public class Group {
+public class GroupBean {
 
 	private String groupName;
 

@@ -36,7 +36,15 @@
 				<div>
 					<div class="label">Password</div>
 					<div class="input">
-						<input type="password" name="pwd" id="pwd"> </input>
+						<input type="password" name="password" id="password"> </input>
+					</div>
+				</div>
+				
+				
+				<div>
+					<div class="label">Password</div>
+					<div class="input">
+						<input type="password" name="repassword" id="repassword"> </input>
 					</div>
 				</div>
 
