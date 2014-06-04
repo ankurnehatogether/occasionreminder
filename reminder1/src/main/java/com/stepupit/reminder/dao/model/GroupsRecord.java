@@ -58,14 +58,21 @@ public class GroupsRecord implements Serializable {
 		this.grpName = grpName;
 	}
 
+	public GroupsRecord(String groupName, UserRecord user) {
+		this.grpName = groupName;
+		this.userid = user;
+	}
+
 	@Override
 	public boolean equals(Object object) {
-		// TODO: Warning - this method won't work in the case the id fields are not set
+		// TODO: Warning - this method won't work in the case the id fields are
+		// not set
 		if (!(object instanceof GroupsRecord)) {
 			return false;
 		}
 		GroupsRecord other = (GroupsRecord) object;
-		if ((this.groupid == null && other.groupid != null) || (this.groupid != null && !this.groupid.equals(other.groupid))) {
+		if ((this.groupid == null && other.groupid != null)
+				|| (this.groupid != null && !this.groupid.equals(other.groupid))) {
 			return false;
 		}
 		return true;
@@ -111,7 +118,8 @@ public class GroupsRecord implements Serializable {
 		this.groupid = groupid;
 	}
 
-	public void setGrpcontactsCollection(Collection<GrpContactsRecord> grpcontactsCollection) {
+	public void setGrpcontactsCollection(
+			Collection<GrpContactsRecord> grpcontactsCollection) {
 		this.grpcontactsCollection = grpcontactsCollection;
 	}
 

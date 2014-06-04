@@ -11,7 +11,7 @@ import com.stepupit.reminder.web.forms.model.RegistrationBean;
 
 public interface RegistrationService extends AppService{
 
-	public boolean register(RegistrationBean user);
+	public String register(RegistrationBean user);
 
 
 

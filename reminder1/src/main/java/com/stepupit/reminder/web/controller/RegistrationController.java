@@ -26,12 +26,12 @@ public class RegistrationController {
 	}
 
 	@RequestMapping(value = "register.htm", method = RequestMethod.POST)
-	public ModelAndView registeruser(@ModelAttribute RegistrationBean user){
+	public ModelAndView registeruser(@ModelAttribute RegistrationBean regForm){ // TODO: validate userbean
 		ModelAndView mav = new ModelAndView("registration");
 		String errorMsg =null;
 		String output = null;
 		try{
-			output = this.registration.register(user);
+			output = this.registration.register(regForm);
 			if(output != null){
 				if(!output.isEmpty() && output.equals(ApplicationConstants.REGISTRATION_SICCESS)){
 					mav.addObject("message",ApplicationConstants.REGISTRATION_SICCESS);

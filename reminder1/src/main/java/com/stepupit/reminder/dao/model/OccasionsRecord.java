@@ -13,6 +13,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -37,6 +39,9 @@ public class OccasionsRecord implements Serializable {
 	private String name;
 	@OneToMany(mappedBy = "occasionId")
 	private Collection<ContactoccasionRecord> contactoccasionCollection;
+	@JoinColumn(name = "userid", referencedColumnName = "userId")
+	@ManyToOne
+	private UserRecord userid;
 
 	public OccasionsRecord() {
 	}
@@ -45,18 +50,28 @@ public class OccasionsRecord implements Serializable {
 		this.occasionid = occasionid;
 	}
 
-	public OccasionsRecord( String name) {
+	public OccasionsRecord(String name) {
 		this.name = name;
 	}
 
+	public OccasionsRecord(String occasionName, UserRecord user) {
+		this.name = occasionName;
+		this.userid = user;
+	}
+
+
+
 	@Override
 	public boolean equals(Object object) {
-		// TODO: Warning - this method won't work in the case the id fields are not set
+		// TODO: Warning - this method won't work in the case the id fields are
+		// not set
 		if (!(object instanceof OccasionsRecord)) {
 			return false;
 		}
 		OccasionsRecord other = (OccasionsRecord) object;
-		if ((this.occasionid == null && other.occasionid != null) || (this.occasionid != null && !this.occasionid.equals(other.occasionid))) {
+		if ((this.occasionid == null && other.occasionid != null)
+				|| (this.occasionid != null && !this.occasionid
+				.equals(other.occasionid))) {
 			return false;
 		}
 		return true;
@@ -75,6 +90,13 @@ public class OccasionsRecord implements Serializable {
 		return this.occasionid;
 	}
 
+	/**
+	 * @return the userid
+	 */
+	public UserRecord getUserid() {
+		return this.userid;
+	}
+
 	@Override
 	public int hashCode() {
 		int hash = 0;
@@ -82,7 +104,8 @@ public class OccasionsRecord implements Serializable {
 		return hash;
 	}
 
-	public void setContactoccasionCollection(Collection<ContactoccasionRecord> contactoccasionCollection) {
+	public void setContactoccasionCollection(
+			Collection<ContactoccasionRecord> contactoccasionCollection) {
 		this.contactoccasionCollection = contactoccasionCollection;
 	}
 
@@ -92,6 +115,14 @@ public class OccasionsRecord implements Serializable {
 
 	public void setOccasionid(Integer occasionid) {
 		this.occasionid = occasionid;
+	}
+
+	/**
+	 * @param userid
+	 *            the userid to set
+	 */
+	public void setUserid(UserRecord userid) {
+		this.userid = userid;
 	}
 
 	@Override
